@@ -16,7 +16,7 @@
       "Marco"
     ],
     "playerColors": {
-      "LEODA": "#1e40af",
+      "LEODA": "#dfab78",
       "NoMaze": "#9ca3af",
       "Frederico Burlamaqui": "#9ca3af",
       "Artesania Marketing": "#9ca3af",
@@ -1105,7 +1105,40 @@
           "v": 0
         }
       ],
-      "ps": [],
+      "ps": [
+        {
+          "p": "NoMaze",
+          "v": 76
+        },
+        {
+          "p": "Frederico Burlamaqui",
+          "v": 68.5
+        },
+        {
+          "p": "Artesania Marketing",
+          "v": 64
+        },
+        {
+          "p": "Handz Marketing",
+          "v": 59.5
+        },
+        {
+          "p": "DRB Marketing",
+          "v": 51
+        },
+        {
+          "p": "LEODA",
+          "v": 49.5
+        },
+        {
+          "p": "Notopo",
+          "v": 47.5
+        },
+        {
+          "p": "Le Pera",
+          "v": 33.5
+        }
+      ],
       "gmn": [
         {
           "p": "Frederico Burlamaqui",
@@ -1140,109 +1173,12 @@
           "v": 0
         }
       ],
-      "touchpoints": [
-        {
-          "p": "LEODA",
-          "s": 72,
-          "ps": 0,
-          "g": 27,
-          "ig": 19,
-          "fb": 13811,
-          "li": 0.8,
-          "yt": 0.0726,
-          "tt": 39,
-          "r": 44
-        },
-        {
-          "p": "Frederico Burlamaqui",
-          "s": 71,
-          "ps": 0,
-          "g": 166.6,
-          "ig": 22,
-          "fb": 756,
-          "li": 0,
-          "yt": 0.28,
-          "tt": 0,
-          "r": 43
-        },
-        {
-          "p": "NoMaze",
-          "s": 79,
-          "ps": 0,
-          "g": 6,
-          "ig": 43,
-          "fb": 1,
-          "li": 0,
-          "yt": 0,
-          "tt": 5,
-          "r": 34
-        },
-        {
-          "p": "Notopo",
-          "s": 71,
-          "ps": 0,
-          "g": 26.24,
-          "ig": 7,
-          "fb": 4404,
-          "li": 0.0556,
-          "yt": 0.0009,
-          "tt": 3159,
-          "r": 32
-        },
-        {
-          "p": "Le Pera",
-          "s": 75,
-          "ps": 0,
-          "g": 4.44,
-          "ig": 8,
-          "fb": 4157,
-          "li": 0.2222,
-          "yt": 0,
-          "tt": 36223,
-          "r": 31
-        },
-        {
-          "p": "Artesania Marketing",
-          "s": 57,
-          "ps": 0,
-          "g": 17,
-          "ig": 12,
-          "fb": 0,
-          "li": 5.5909,
-          "yt": 0,
-          "tt": 0,
-          "r": 28
-        },
-        {
-          "p": "Handz Marketing",
-          "s": 66,
-          "ps": 0,
-          "g": 0,
-          "ig": 4,
-          "fb": 503,
-          "li": 0.7143,
-          "yt": 0,
-          "tt": 0,
-          "r": 24
-        },
-        {
-          "p": "DRB Marketing",
-          "s": 0,
-          "ps": 0,
-          "g": 0,
-          "ig": 0,
-          "fb": 39,
-          "li": 0,
-          "yt": 0,
-          "tt": 10,
-          "r": 16
-        }
-      ],
+      "touchpoints": [],
       "performance": [
         {
           "p": "Frederico Burlamaqui",
           "s": 71,
-          "ps": 0,
+          "ps": 68.5,
           "g": 166.6,
           "ig": 22,
           "fb": 756,
@@ -1254,7 +1190,7 @@
         {
           "p": "LEODA",
           "s": 72,
-          "ps": 0,
+          "ps": 49.5,
           "g": 27,
           "ig": 19,
           "fb": 13811,
@@ -1266,7 +1202,7 @@
         {
           "p": "NoMaze",
           "s": 79,
-          "ps": 0,
+          "ps": 76,
           "g": 6,
           "ig": 43,
           "fb": 1,
@@ -1278,7 +1214,7 @@
         {
           "p": "Artesania Marketing",
           "s": 57,
-          "ps": 0,
+          "ps": 64,
           "g": 17,
           "ig": 12,
           "fb": 0,
@@ -1290,7 +1226,7 @@
         {
           "p": "Le Pera",
           "s": 75,
-          "ps": 0,
+          "ps": 33.5,
           "g": 4.44,
           "ig": 8,
           "fb": 4157,
@@ -1302,7 +1238,7 @@
         {
           "p": "Notopo",
           "s": 71,
-          "ps": 0,
+          "ps": 47.5,
           "g": 26.24,
           "ig": 7,
           "fb": 4404,
@@ -1314,7 +1250,7 @@
         {
           "p": "Handz Marketing",
           "s": 66,
-          "ps": 0,
+          "ps": 59.5,
           "g": 0,
           "ig": 4,
           "fb": 503,
@@ -1326,7 +1262,7 @@
         {
           "p": "DRB Marketing",
           "s": 0,
-          "ps": 0,
+          "ps": 51,
           "g": 0,
           "ig": 0,
           "fb": 39,
