@@ -47,7 +47,7 @@
   --radius:10px;--radius-sm:7px;
   --ig:#e1306c;--fb:#1877f2;--li:#0a66c2;--yt:#ff0000;
   --seo:#fbbf24;--gmn:#d97706;--ps:#10b981;
-  --orpec:#1e40af;--muted:#9ca3af;
+  --orpec:#dfab78;--muted:#9ca3af;
   --success:#10b981;--danger:#dc2626;--info:#3b82f6;
 }
 @media(prefers-color-scheme:dark){
@@ -334,7 +334,7 @@ var DATA_INLINE = {
       "DRB Marketing"
     ],
     "playerColors": {
-      "LEODA": "#1e40af",
+      "LEODA": "#dfab78",
       "NoMaze": "#9ca3af",
       "Frederico Burlamaqui": "#9ca3af",
       "Artesania Marketing": "#9ca3af",
@@ -1492,7 +1492,7 @@ function getMonthOrder() { return DATA.meta.months; }
 function getPrevMonth(m) { var o = getMonthOrder(); var i = o.indexOf(m); return i > 0 ? o[i-1] : null; }
 function getMeta(p) { return DATA.meta; }
 function getColor(p) { return DATA.meta.playerColors[p] || '#9ca3af'; }
-function getFullColor(p) { return p === 'LEODA' ? '#1e40af' : getColor(p); }
+function getFullColor(p) { return p === 'LEODA' ? '#dfab78' : getColor(p); }
 
 function posRaw(arr) {
   var filtered = arr.filter(function(d) { return visiblePlayers[d.p]; });
@@ -1605,12 +1605,12 @@ function render() {
   var prevSOCIAL = prevMo ? DATA.social[prevMo] : mo;
   var prevSEO = prevMo ? DATA.seo[prevMo] : so;
 
-  var igP = posRaw(mo.ig), fbP = posRaw(mo.fb), liP = posRaw(mo.li), ytP = posRaw(mo.yt), seP = posRaw(so.seo), psP = posRaw(so.ps), rpP = findRankPerformanceIn(so.touchpoints);
-  var pIgP = posRaw(prevSOCIAL.ig), pFbP = posRaw(prevSOCIAL.fb), pLiP = posRaw(prevSOCIAL.li), pYtP = posRaw(prevSOCIAL.yt), pSeP = posRaw(prevSEO.seo), pPsP = posRaw(prevSEO.ps), pRpP = findRankPerformanceIn(prevSEO.touchpoints);
+  var igP = posRaw(mo.ig), fbP = posRaw(mo.fb), liP = posRaw(mo.li), ytP = posRaw(mo.yt), ttP = mo.tt ? posRaw(mo.tt) : {pos:'-',total:0}, seP = posRaw(so.seo), psP = posRaw(so.ps), rpP = findRankPerformanceIn(so.touchpoints);
+  var pIgP = posRaw(prevSOCIAL.ig), pFbP = posRaw(prevSOCIAL.fb), pLiP = posRaw(prevSOCIAL.li), pYtP = posRaw(prevSOCIAL.yt), pTtP = prevSOCIAL.tt ? posRaw(prevSOCIAL.tt) : {pos:'-',total:0}, pSeP = posRaw(prevSEO.seo), pPsP = posRaw(prevSEO.ps), pRpP = findRankPerformanceIn(prevSEO.touchpoints);
 
-  var opColors = ['#e1306c','#1877f2','#0a66c2','#ff0000','#fbbf24','#10b981','#06b6d4'];
-  var opLabels = ['Instagram','Facebook','LinkedIn','YouTube','SEO','PageSpeed','GMN'];
-  var opData = [{c:igP,p:pIgP},{c:fbP,p:pFbP},{c:liP,p:pLiP},{c:ytP,p:pYtP},{c:seP,p:pSeP},{c:psP,p:pPsP},{c:rpP,p:pRpP}];
+  var opColors = ['#e1306c','#1877f2','#0a66c2','#ff0000','#000000','#fbbf24','#10b981','#06b6d4'];
+  var opLabels = ['Instagram','Facebook','LinkedIn','YouTube','TikTok','SEO','PageSpeed','GMN'];
+  var opData = [{c:igP,p:pIgP},{c:fbP,p:pFbP},{c:liP,p:pLiP},{c:ytP,p:pYtP},{c:ttP,p:pTtP},{c:seP,p:pSeP},{c:psP,p:pPsP},{c:rpP,p:pRpP}];
 
   var opHtml = '<div class="orpec-strip">';
   for (var i=0;i<opLabels.length;i++){
@@ -1631,6 +1631,7 @@ function render() {
     {id:'cFB',label:'Facebook',color:'#1877f2',key:'fb'},
     {id:'cLI',label:'LinkedIn',color:'#0a66c2',key:'li'},
     {id:'cYT',label:'YouTube',color:'#ff0000',key:'yt'},
+    {id:'cTT',label:'TikTok',color:'#000000',key:'tt'},
     {id:'cSEO',label:'SEO (Woorank)',color:'#fbbf24',key:'seo'},
     {id:'cGMN',label:'Google Meu Negócio',color:'#d97706',key:'gmn'},
     {id:'cPS',label:'PageSpeed',color:'#10b981',key:'ps'}
@@ -1689,13 +1690,17 @@ function render() {
   renderBarChart('cFB', mo.fb);
   renderBarChart('cLI', mo.li);
   renderBarChart('cYT', mo.yt);
+  if (mo.tt && mo.tt.length > 0) renderBarChart('cTT', mo.tt);
 
   var seoData = bestFirst(so.seo);
   if (seoData.length > 0) bar('cSEO', seoData.map(function(d){return d.p;}), [{data:seoData.map(function(d){return d.v;}),c:seoData.map(function(d){return getFullColor(d.p);})}], true);
 
-  if (mo.gmn && mo.gmn.length > 0) {
-    var gmnData = bestFirst(mo.gmn);
+  if (so.gmn && so.gmn.length > 0) {
+    var gmnData = bestFirst(so.gmn);
     if (gmnData.length > 0) bar('cGMN', gmnData.map(function(d){return d.p;}), [{data:gmnData.map(function(d){return parseFloat(d.v.toFixed(1));}),c:gmnData.map(function(d){return getFullColor(d.p);})}], true);
+  } else if (mo.gmn && mo.gmn.length > 0) {
+    var gmnData2 = bestFirst(mo.gmn);
+    if (gmnData2.length > 0) bar('cGMN', gmnData2.map(function(d){return d.p;}), [{data:gmnData2.map(function(d){return parseFloat(d.v.toFixed(1));}),c:gmnData2.map(function(d){return getFullColor(d.p);})}], true);
   }
 
   var psData = bestFirst(so.ps);
@@ -1703,10 +1708,10 @@ function render() {
 
   // -- Ranking table --
   var rkItems = so.touchpoints.filter(function(d){return visiblePlayers[d.p];}).sort(function(a,b){return b.r-a.r;});
-  var rkHtml = '<table class="rk"><thead><tr><th>Player</th><th>SEO</th><th>Page Speed</th><th>GMN</th><th>IG</th><th>FB</th><th>LI</th><th>YT</th><th>Result.</th></tr></thead><tbody>';
+  var rkHtml = '<table class="rk"><thead><tr><th>Player</th><th>SEO</th><th>Page Speed</th><th>GMN</th><th>IG</th><th>FB</th><th>LI</th><th>YT</th><th>TT</th><th>Result.</th></tr></thead><tbody>';
   rkItems.forEach(function(it, i) {
     var rc = i<3?' class="r'+(i+1)+'"':'';
-    rkHtml += '<tr><td'+rc+'>'+(i+1)+'. '+it.p+'</td><td>'+it.s+'</td><td>'+it.ps+'</td><td>'+it.g+'</td><td>'+it.ig+'</td><td>'+it.fb+'</td><td>'+it.li+'</td><td>'+it.yt+'</td><td><strong>'+it.r+'</strong></td></tr>';
+    rkHtml += '<tr'+rc+'><td'+rc+'>'+(i+1)+'. '+it.p+'</td><td>'+it.s+'</td><td>'+it.ps+'</td><td>'+it.g+'</td><td>'+it.ig+'</td><td>'+it.fb+'</td><td>'+it.li+'</td><td>'+it.yt+'</td><td>'+(it.tt||0)+'</td><td><strong>'+it.r+'</strong></td></tr>';
   });
   rkHtml += '</tbody></table>';
   document.getElementById('rkTable').innerHTML = rkHtml;
@@ -1717,7 +1722,7 @@ function render() {
   var rpItems = Object.keys(rpMap).map(function(k){return rpMap[k];}).sort(function(a,b){return b.r-a.r;});
   var ch = [
     {l:'SEO',k:'s',c:'#fbbf24'},{l:'PageSpeed',k:'ps',c:'#10b981'},{l:'GMN',k:'g',c:'#06b6d4'},
-    {l:'Instagram',k:'ig',c:'#e1306c'},{l:'Facebook',k:'fb',c:'#1877f2'},{l:'LinkedIn',k:'li',c:'#0a66c2'},{l:'YouTube',k:'yt',c:'#ff0000'}
+    {l:'Instagram',k:'ig',c:'#e1306c'},{l:'Facebook',k:'fb',c:'#1877f2'},{l:'LinkedIn',k:'li',c:'#0a66c2'},{l:'YouTube',k:'yt',c:'#ff0000'},{l:'TikTok',k:'tt',c:'#000000'}
   ];
   if (charts.rk) charts.rk.destroy();
   if (rpItems.length > 0) {
@@ -1748,20 +1753,42 @@ function render() {
     options:{responsive:true,maintainAspectRatio:true,animation:{duration:600},plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(255,255,255,0.95)',titleColor:'#1f2937',bodyColor:'#1f2937',borderColor:'#e5e7eb',borderWidth:1,padding:10,titleFont:{family:'Inter',size:12,weight:'600'},bodyFont:{family:'Inter',size:11}}},scales:{x:{grid:{color:gridC},ticks:{color:tickC,font:{size:9,family:'Inter'}}},y:{min:0,max:100,grid:{color:gridC},ticks:{color:tickC,font:{size:9,family:'Inter'},callback:function(v){return v+'%';}}}}}
   });
 
-  // -- Radar (Top 5) --
+  // -- Radar (Top 5) -- NORMALIZADO para 0-100
   var radarTop5 = rpItems.slice(0,5);
   if (charts.rkRadar) charts.rkRadar.destroy();
   if (radarTop5.length > 0) {
+    // Encontrar máximos de cada plataforma para normalizar
+    var allPlayers = so.touchpoints.filter(function(d){return visiblePlayers[d.p];});
+    var maxVals = {s:0,ps:0,g:0,ig:0,fb:0,li:0,yt:0,tt:0};
+    allPlayers.forEach(function(p) {
+      maxVals.s = Math.max(maxVals.s, p.s||0);
+      maxVals.ps = Math.max(maxVals.ps, p.ps||0);
+      maxVals.g = Math.max(maxVals.g, p.g||0);
+      maxVals.ig = Math.max(maxVals.ig, p.ig||0);
+      maxVals.fb = Math.max(maxVals.fb, p.fb||0);
+      maxVals.li = Math.max(maxVals.li, p.li||0);
+      maxVals.yt = Math.max(maxVals.yt, p.yt||0);
+      maxVals.tt = Math.max(maxVals.tt, p.tt||0);
+    });
+    
     charts.rkRadar = new Chart(document.getElementById('rkRadar').getContext('2d'), {
       type:'radar',
       data:{
-        labels:['SEO','PageSpeed','GMN','Instagram','Facebook','LinkedIn','YouTube'],
+        labels:['SEO','PageSpeed','GMN','Instagram','Facebook','LinkedIn','YouTube','TikTok'],
         datasets:radarTop5.map(function(p){
           var clr = getFullColor(p.p);
-          return {label:p.p,backgroundColor:clr+(p.p==='LEODA'?'22':'10'),borderColor:clr,borderWidth:p.p==='LEODA'?2.5:1.2,pointBackgroundColor:clr,pointRadius:p.p==='LEODA'?4:2,data:[p.s,p.ps,p.g,p.ig,p.fb,p.li,p.yt]};
+          var normS = maxVals.s > 0 ? (p.s / maxVals.s * 100) : 0;
+          var normPs = maxVals.ps > 0 ? (p.ps / maxVals.ps * 100) : 0;
+          var normG = maxVals.g > 0 ? Math.min(p.g / maxVals.g * 100, 100) : 0;
+          var normIg = maxVals.ig > 0 ? (p.ig / maxVals.ig * 100) : 0;
+          var normFb = maxVals.fb > 0 ? Math.min(p.fb / maxVals.fb * 100, 100) : 0;
+          var normLi = maxVals.li > 0 ? Math.min(p.li / maxVals.li * 100, 100) : 0;
+          var normYt = maxVals.yt > 0 ? Math.min(p.yt / maxVals.yt * 100, 100) : 0;
+          var normTt = maxVals.tt > 0 ? Math.min(p.tt / maxVals.tt * 100, 100) : 0;
+          return {label:p.p,backgroundColor:clr+(p.p==='LEODA'?'30':'10'),borderColor:clr,borderWidth:p.p==='LEODA'?2.5:1.2,pointBackgroundColor:clr,pointRadius:p.p==='LEODA'?4:2,data:[normS,normPs,normG,normIg,normFb,normLi,normYt,normTt]};
         })
       },
-      options:{responsive:true,maintainAspectRatio:true,animation:{duration:600},plugins:{legend:{labels:{color:'#555',font:{size:9,family:'Inter'},boxWidth:10,padding:10},position:'bottom'}},scales:{r:{beginAtZero:true,grid:{color:'rgba(0,0,0,0.06)'},angleLines:{color:'rgba(0,0,0,0.06)'},pointLabels:{color:'#555',font:{size:9,family:'Inter'}},ticks:{color:'#999',backdropColor:'transparent',font:{size:8},maxTicksLimit:5}}}}
+      options:{responsive:true,maintainAspectRatio:true,animation:{duration:600},plugins:{legend:{labels:{color:'#555',font:{size:9,family:'Inter'},boxWidth:10,padding:10},position:'bottom'}},scales:{r:{min:0,max:100,beginAtZero:true,grid:{color:'rgba(0,0,0,0.06)'},angleLines:{color:'rgba(0,0,0,0.06)'},pointLabels:{color:'#555',font:{size:9,family:'Inter'}},ticks:{color:'#999',backdropColor:'transparent',font:{size:8},maxTicksLimit:5,stepSize:20}}}}
     });
   }
 
@@ -1783,8 +1810,10 @@ function render() {
   tbl += makeDt('Facebook','#1877f2',mo.fb,'Seguidores');
   tbl += makeDt('LinkedIn','#0a66c2',mo.li,'Performance');
   tbl += makeDt('YouTube','#ff0000',mo.yt,'Performance');
+  if (mo.tt && mo.tt.length>0) tbl += makeDt('TikTok','#000000',mo.tt,'Seguidores');
   tbl += makeDt('SEO','#fbbf24',so.seo,'Score');
-  if (mo.gmn && mo.gmn.length>0) tbl += makeDt('Google Meu Negócio','#d97706',mo.gmn,'Score');
+  if (so.gmn && so.gmn.length>0) tbl += makeDt('Google Meu Negócio','#d97706',so.gmn,'Score');
+  else if (mo.gmn && mo.gmn.length>0) tbl += makeDt('Google Meu Negócio','#d97706',mo.gmn,'Score');
   tbl += makeDt('PageSpeed','#10b981',so.ps,'Score');
   document.getElementById('dataTables').innerHTML = tbl;
 }

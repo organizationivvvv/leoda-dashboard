@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>Teste LEODA Data</title></head>
+<body>
+<h1>Testando data.json</h1>
+<div id="result"></div>
+<script>
+const result = document.getElementById('result');
+
+// Testa leitura do data.json
+fetch('data.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => {
+    result.innerHTML = '<h2>✅ data.json carregado via HTTP!</h2><pre>' + JSON.stringify(data.social.Janeiro.ig, null, 2) + '</pre>';
+  })
+  .catch(err => {
+    result.innerHTML = '<h2>❌ Erro ao carregar data.json</h2><p>' + err.message + '</p><p>Isso é normal quando abre via file://</p>';
+    console.log('Testando DATA_INLINE...');
+  });
+</script>
+</body>
+</html>
