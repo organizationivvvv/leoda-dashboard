@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "players": [
+      "LEODA",
+      "NoMaze",
+      "Frederico Burlamaqui",
+      "Artesania Marketing",
+      "Le Pera",
+      "Notopo",
+      "Handz Marketing",
+      "DRB Marketing"
+    ],
+    "months": [
+      "Janeiro",
+      "Fevereiro",
+      "Marco"
+    ],
+    "playerColors": {
+      "LEODA": "#1e40af",
+      "NoMaze": "#9ca3af",
+      "Frederico Burlamaqui": "#9ca3af",
+      "Artesania Marketing": "#9ca3af",
+      "Le Pera": "#9ca3af",
+      "Notopo": "#9ca3af",
+      "Handz Marketing": "#9ca3af",
+      "DRB Marketing": "#9ca3af"
+    },
+    "monthLabels": {
+      "Janeiro": "Jan 2026",
+      "Fevereiro": "Fev 2026",
+      "Marco": "Mar 2026"
+    }
+  },
+  "social": {
+    "Janeiro": {
+      "ig": {
+        "Frederico Burlamaqui": 25.553,
+        "NoMaze": 17.4069,
+        "Artesania Marketing": 14.2524,
+        "LEODA": 12.5444,
+        "Le Pera": 11.6812,
+        "Notopo": 5.9551,
+        "Handz Marketing": 3.536,
+        "DRB Marketing": 0
+      },
+      "fb": {
+        "LEODA": 13000,
+        "Notopo": 4400,
+        "Le Pera": 4100,
+        "Frederico Burlamaqui": 759,
+        "Handz Marketing": 504,
+        "DRB Marketing": 39,
+        "NoMaze": 1,
+        "Artesania Marketing": 0
+      },
+      "li": {
+        "Artesania Marketing": 1.333333333,
+        "LEODA": 0.8,
+        "Handz Marketing": 0.7777777778,
+        "Le Pera": 0.1176470588,
+        "Notopo": 0.05555555556,
+        "Frederico Burlamaqui": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0
+      },
+      "yt": {
+        "LEODA": 0.05649717514,
+        "Notopo": 0.002580645161,
+        "Le Pera": 0,
+        "Frederico Burlamaqui": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0
+      }
+    },
+    "Fevereiro": {
+      "ig": {
+        "NoMaze": 42.484,
+        "Frederico Burlamaqui": 22.1241,
+        "LEODA": 18.7935,
+        "Artesania Marketing": 11.6164,
+        "Le Pera": 8.116,
+        "Notopo": 6.1973,
+        "Handz Marketing": 3.5329,
+        "DRB Marketing": 0
+      },
+      "fb": {
+        "LEODA": 13000,
+        "Notopo": 4400,
+        "Le Pera": 4100,
+        "Frederico Burlamaqui": 757,
+        "Handz Marketing": 503,
+        "DRB Marketing": 39,
+        "NoMaze": 1,
+        "Artesania Marketing": 0
+      },
+      "li": {
+        "Handz Marketing": 0.625,
+        "LEODA": 0.6,
+        "Le Pera": 0.3611111111,
+        "Artesania Marketing": 0.1136363636,
+        "Notopo": 0,
+        "Frederico Burlamaqui": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0
+      },
+      "yt": {
+        "Le Pera": 0,
+        "Notopo": 0,
+        "LEODA": 0,
+        "Frederico Burlamaqui": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0
+      }
+    },
+    "Marco": {
+      "ig": {
+        "NoMaze": 43,
+        "Frederico Burlamaqui": 22,
+        "LEODA": 19,
+        "Artesania Marketing": 12,
+        "Le Pera": 8,
+        "Notopo": 7,
+        "Handz Marketing": 4,
+        "DRB Marketing": 0
+      },
+      "fb": {
+        "LEODA": 13811,
+        "Notopo": 4404,
+        "Le Pera": 4157,
+        "Frederico Burlamaqui": 756,
+        "Handz Marketing": 503,
+        "DRB Marketing": 39,
+        "NoMaze": 1,
+        "Artesania Marketing": 0
+      },
+      "li": {
+        "Artesania Marketing": 5.5909,
+        "LEODA": 0.8,
+        "Handz Marketing": 0.7143,
+        "Le Pera": 0.2222,
+        "Notopo": 0.0556
+      },
+      "yt": {
+        "Frederico Burlamaqui": 0.28,
+        "LEODA": 0.0726,
+        "Notopo": 0.0009,
+        "Le Pera": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0,
+        "Handz Marketing": 0,
+        "Artesania Marketing": 0
+      }
+    }
+  },
+  "seo": {
+    "Janeiro": {
+      "seo": {
+        "NoMaze": 79,
+        "Le Pera": 75,
+        "Frederico Burlamaqui": 71,
+        "Notopo": 71,
+        "Handz Marketing": 68,
+        "LEODA": 67,
+        "Artesania Marketing": 57,
+        "DRB Marketing": 0
+      },
+      "ps": {
+        "Handz Marketing": 100,
+        "NoMaze": 94,
+        "Artesania Marketing": 93,
+        "Frederico Burlamaqui": 74,
+        "Notopo": 85,
+        "LEODA": 98,
+        "DRB Marketing": 73,
+        "Le Pera": 20
+      },
+      "gmn": {
+        "Frederico Burlamaqui": 161.7,
+        "Notopo": 26.24,
+        "LEODA": 23,
+        "Artesania Marketing": 17,
+        "NoMaze": 6,
+        "Le Pera": 4.44,
+        "Handz Marketing": 0,
+        "DRB Marketing": 0
+      },
+      "touchpoints": {
+        "LEODA": 40,
+        "Frederico Burlamaqui": 40,
+        "Notopo": 37,
+        "Le Pera": 32,
+        "NoMaze": 32,
+        "Artesania Marketing": 29,
+        "Handz Marketing": 28,
+        "DRB Marketing": 14
+      },
+      "performance": {
+        "LEODA": 115,
+        "Frederico Burlamaqui": 130,
+        "Notopo": 112,
+        "Le Pera": 99,
+        "NoMaze": 120,
+        "Artesania Marketing": 108,
+        "Handz Marketing": 104,
+        "DRB Marketing": 40
+      },
+      "pct": {
+        "LEODA": 88.46,
+        "Frederico Burlamaqui": 100,
+        "Notopo": 86.15,
+        "Le Pera": 76.15,
+        "NoMaze": 92.31,
+        "Artesania Marketing": 83.08,
+        "Handz Marketing": 80,
+        "DRB Marketing": 30.77
+      },
+      "overallPct": 79.62
+    },
+    "Fevereiro": {
+      "seo": {
+        "NoMaze": 79,
+        "Le Pera": 75,
+        "LEODA": 72,
+        "Frederico Burlamaqui": 71,
+        "Notopo": 71,
+        "Handz Marketing": 66,
+        "Artesania Marketing": 57,
+        "DRB Marketing": 0
+      },
+      "ps": {
+        "Artesania Marketing": 94,
+        "Frederico Burlamaqui": 86,
+        "NoMaze": 89,
+        "Handz Marketing": 60,
+        "DRB Marketing": 78,
+        "Notopo": 66,
+        "LEODA": 48,
+        "Le Pera": 21
+      },
+      "gmn": {
+        "Frederico Burlamaqui": 161.7,
+        "Notopo": 26.24,
+        "LEODA": 25,
+        "Artesania Marketing": 17,
+        "NoMaze": 6,
+        "Le Pera": 4.44,
+        "Handz Marketing": 0,
+        "DRB Marketing": 0
+      },
+      "touchpoints": {
+        "LEODA": 41,
+        "Frederico Burlamaqui": 40,
+        "Notopo": 35,
+        "Le Pera": 35,
+        "NoMaze": 32,
+        "Artesania Marketing": 27,
+        "Handz Marketing": 26,
+        "DRB Marketing": 16
+      },
+      "performance": {
+        "LEODA": 124,
+        "Frederico Burlamaqui": 132,
+        "Notopo": 102,
+        "Le Pera": 107,
+        "NoMaze": 118,
+        "Artesania Marketing": 103,
+        "Handz Marketing": 92,
+        "DRB Marketing": 50
+      },
+      "pct": {
+        "LEODA": 93.94,
+        "Frederico Burlamaqui": 100,
+        "Notopo": 77.27,
+        "Le Pera": 81.06,
+        "NoMaze": 89.39,
+        "Artesania Marketing": 78.03,
+        "Handz Marketing": 69.7,
+        "DRB Marketing": 37.88
+      },
+      "overallPct": 78.41
+    },
+    "Marco": {
+      "seo": {
+        "NoMaze": 79,
+        "Le Pera": 75,
+        "LEODA": 72,
+        "Frederico Burlamaqui": 71,
+        "Notopo": 71,
+        "Handz Marketing": 66,
+        "Artesania Marketing": 57,
+        "DRB Marketing": 0
+      },
+      "ps": {},
+      "gmn": {
+        "Frederico Burlamaqui": 166.6,
+        "LEODA": 27,
+        "Notopo": 26.24,
+        "Artesania Marketing": 17,
+        "NoMaze": 6,
+        "Le Pera": 4.44,
+        "Handz Marketing": 0,
+        "DRB Marketing": 0
+      },
+      "touchpoints": {},
+      "performance": {
+        "LEODA": 134,
+        "Frederico Burlamaqui": 138,
+        "NoMaze": 128,
+        "Notopo": 92,
+        "Le Pera": 97,
+        "Artesania Marketing": 105,
+        "Handz Marketing": 84,
+        "DRB Marketing": 50
+      },
+      "pct": {
+        "LEODA": 97.1,
+        "Frederico Burlamaqui": 100,
+        "NoMaze": 92.75,
+        "Notopo": 66.67,
+        "Le Pera": 70.29,
+        "Artesania Marketing": 76.09,
+        "Handz Marketing": 60.87,
+        "DRB Marketing": 36.23
+      },
+      "overallPct": 75
+    }
+  }
+}
