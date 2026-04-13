@@ -59,9 +59,9 @@
         "Handz Marketing": 0.7777777778,
         "Le Pera": 0.1176470588,
         "Notopo": 0.05555555556,
-        "Frederico Burlamaqui": 0,
-        "DRB Marketing": 0,
-        "NoMaze": 0
+        "Frederico Burlamaqui": 145.4,
+        "DRB Marketing": 189.5,
+        "NoMaze": 47.42857143
       },
       "yt": {
         "LEODA": 0.05649717514,
@@ -98,10 +98,10 @@
         "LEODA": 0.6,
         "Le Pera": 0.3611111111,
         "Artesania Marketing": 0.1136363636,
-        "Notopo": 0,
-        "Frederico Burlamaqui": 0,
-        "DRB Marketing": 0,
-        "NoMaze": 0
+        "Notopo": 200.9444444,
+        "Frederico Burlamaqui": 145.6,
+        "DRB Marketing": 190,
+        "NoMaze": 55.66666667
       },
       "yt": {
         "Le Pera": 0,
@@ -138,7 +138,10 @@
         "LEODA": 0.8,
         "Handz Marketing": 0.7143,
         "Le Pera": 0.2222,
-        "Notopo": 0.0556
+        "Notopo": 0.0556,
+        "Frederico Burlamaqui": 0,
+        "DRB Marketing": 0,
+        "NoMaze": 0
       },
       "yt": {
         "Frederico Burlamaqui": 0.28,
@@ -165,14 +168,14 @@
         "DRB Marketing": 0
       },
       "ps": {
-        "Handz Marketing": 100,
-        "NoMaze": 94,
-        "Artesania Marketing": 93,
-        "Frederico Burlamaqui": 74,
-        "Notopo": 85,
-        "LEODA": 98,
-        "DRB Marketing": 73,
-        "Le Pera": 20
+        "Handz Marketing": 97.5,
+        "NoMaze": 86,
+        "Artesania Marketing": 80.5,
+        "Frederico Burlamaqui": 69.5,
+        "Notopo": 67.5,
+        "LEODA": 59,
+        "DRB Marketing": 51.5,
+        "Le Pera": 25.5
       },
       "gmn": {
         "Frederico Burlamaqui": 161.7,
@@ -228,14 +231,14 @@
         "DRB Marketing": 0
       },
       "ps": {
-        "Artesania Marketing": 94,
-        "Frederico Burlamaqui": 86,
-        "NoMaze": 89,
-        "Handz Marketing": 60,
-        "DRB Marketing": 78,
-        "Notopo": 66,
-        "LEODA": 48,
-        "Le Pera": 21
+        "Artesania Marketing": 81,
+        "Frederico Burlamaqui": 77,
+        "NoMaze": 73,
+        "Handz Marketing": 68.5,
+        "DRB Marketing": 56.5,
+        "Notopo": 56,
+        "LEODA": 41,
+        "Le Pera": 28.5
       },
       "gmn": {
         "Frederico Burlamaqui": 161.7,
@@ -301,7 +304,16 @@
         "Handz Marketing": 0,
         "DRB Marketing": 0
       },
-      "touchpoints": {},
+      "touchpoints": {
+        "LEODA": 44,
+        "Frederico Burlamaqui": 43,
+        "NoMaze": 34,
+        "Notopo": 32,
+        "Le Pera": 31,
+        "Artesania Marketing": 28,
+        "Handz Marketing": 24,
+        "DRB Marketing": 16
+      },
       "performance": {
         "LEODA": 134,
         "Frederico Burlamaqui": 138,
