@@ -5,32 +5,31 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
-      
+          fetch-depth: 0
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Create a fresh gh-pages branch
+          git checkout --orphan gh-pages
+          git rm -rf .
+          
+          # Copy all files from main (except .github)
+          git checkout main -- index.html data.json chart.min.js README.md
+          
+          git add -A
+          git commit -m "Deploy: $(git log main -1 --format=%h)"
+          git push -f origin gh-pages
