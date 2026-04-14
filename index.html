@@ -232,7 +232,7 @@ table.dt td:first-child{font-weight:600;color:var(--text)}
 <!-- HEADER -->
 <header class="header" role="banner">
   <div class="brand">
-    <div class="brand-logo" aria-hidden="true"><img src="logo-placeholder.png" alt="LEODA"></div>
+    <div class="brand-logo" aria-hidden="true"><img src="Logo01_branca - Copia.png" alt="LEODA"></div>
     <h1>Dashboard <span>Players</span></h1>
   </div>
   <div class="header-right">
@@ -250,12 +250,6 @@ table.dt td:first-child{font-weight:600;color:var(--text)}
     <h2 id="hero-title">Dashboard Completo</h2>
     <p>Análise integrada de desempenho em redes sociais, SEO e métricas técnicas</p>
   </section>
-
-  <!-- FILTERS -->
-  <div class="filter-bar" id="filterBar" role="toolbar" aria-label="Filtros de players">
-    <span class="filter-label">Players:</span>
-    <div class="filter-chips" id="playerChips"></div>
-  </div>
 
   <!-- KPIs -->
   <div class="kpi-strip" id="kpiStrip" role="region" aria-label="KPIs principais"></div>
@@ -1728,7 +1722,8 @@ function getOverallDelta(m) {
   var prev = getPrevMonth(m);
   var curVal = DATA.seo[m].overallPct;
   if (!prev) return {delta:0, cur:curVal, prev:curVal, noPrev:true};
-  return {delta: curVal - DATA.seo[prev].overallPct, cur:curVal, prev:DATA.seo[prev].overallPct, noPrev:false};
+  var delta = Math.round((curVal - DATA.seo[prev].overallPct) * 100) / 100;
+  return {delta: delta, cur:curVal, prev:DATA.seo[prev].overallPct, noPrev:false};
 }
 
 function getOrpecRankDelta(m) {
@@ -1744,30 +1739,13 @@ function getOrpecRankDelta(m) {
 }
 
 function formatDelta(delta, isPos) {
+  var rounded = Math.round(Math.abs(delta) * 100) / 100;
   if (delta===0) return {arrow:'→',sign:'',str:'0'+(isPos?' pos':'%'),color:'#6b7280'};
-  if (delta>0) return {arrow:'↑',sign:'+',str:delta+(isPos?' pos':'%'),color:'#10b981'};
-  return {arrow:'↓',sign:'',str:delta+(isPos?' pos':'%'),color:'#dc2626'};
+  if (delta>0) return {arrow:'↑',sign:'+',str:rounded+(isPos?' pos':'%'),color:'#10b981'};
+  return {arrow:'↓',sign:'',str:rounded+(isPos?' pos':'%'),color:'#dc2626'};
 }
 
 function bestFirst(arr) { return arr.filter(function(d){return visiblePlayers[d.p];}).sort(function(a,b){return b.v-a.v;}); }
-
-/* ===================== PLAYER CHIPS ===================== */
-function renderPlayerChips() {
-  var container = document.getElementById('playerChips');
-  var html = '';
-  DATA.meta.players.forEach(function(p) {
-    var isActive = visiblePlayers[p];
-    var isOrpec = p === 'LEODA';
-    html += '<button class="fchip'+(isActive?' active':'')+(isOrpec?' fchip-orpec':'')+'" data-player="'+p+'" onclick="togglePlayer(this,\''+p+'\')" title="Mostrar/ocultar '+p+'">'+p+'</button>';
-  });
-  container.innerHTML = html;
-}
-
-function togglePlayer(btn, player) {
-  visiblePlayers[player] = !visiblePlayers[player];
-  btn.classList.toggle('active');
-  render();
-}
 
 /* ===================== MONTH PILLS ===================== */
 function renderMonthPills() {
@@ -1813,7 +1791,7 @@ function render() {
   var rfmt = formatDelta(rd.delta, true);
 
   document.getElementById('trendCards').innerHTML =
-    '<div class="kpi green stagger-5"><div class="ico gr"><svg viewBox="0 0 22 22" fill="none"><path d="M11 6 L16 11 L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="bd"><div class="lb">'+(od.noPrev?'Performance (1º mês)':'Δ Performance Geral')+'</div><div class="vl" style="color:'+ofmt.color+'">'+ofmt.arrow+' '+so.overallPct+'%</div><div class="sb">'+(od.noPrev?'Sem mês anterior':(od.delta>=0?'subiu ':'desceu ')+Math.abs(od.delta)+'% vs '+(DATA.meta.monthLabels[getPrevMonth(curMo)]||getPrevMonth(curMo)))+'</div></div></div>'+
+    '<div class="kpi green stagger-5"><div class="ico gr"><svg viewBox="0 0 22 22" fill="none"><path d="M11 6 L16 11 L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="bd"><div class="lb">'+(od.noPrev?'Performance (1º mês)':'Δ Performance Geral')+'</div><div class="vl" style="color:'+ofmt.color+'">'+ofmt.arrow+' '+so.overallPct+'%</div><div class="sb">'+(od.noPrev?'Sem mês anterior':(od.delta>=0?'subiu ':'desceu ')+ofmt.str+' vs '+(DATA.meta.monthLabels[getPrevMonth(curMo)]||getPrevMonth(curMo)))+'</div></div></div>'+
     '<div class="kpi blue stagger-6"><div class="ico bl"><svg viewBox="0 0 22 22" fill="none"><path d="M11 6 L16 11 L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="bd"><div class="lb">'+(rd.noPrev?'Posição LEODA (1º mês)':'Δ Posição LEODA')+'</div><div class="vl" style="color:'+rfmt.color+'">'+rfmt.arrow+' '+rd.cur+'º</div><div class="sb">'+(rd.noPrev?'Sem mês anterior':(rd.delta>0?'subiu '+rd.delta+' pos':rd.delta<0?'desceu '+Math.abs(rd.delta)+' pos':'manteve'))+'</div></div></div>';
 
   // -- LEODA position cards --
@@ -2198,7 +2176,6 @@ function showToast(msg, type) {
 loadData()
   .then(function() {
     renderMonthPills();
-    renderPlayerChips();
     render();
     // Hide loader
     setTimeout(function() {

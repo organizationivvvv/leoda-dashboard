@@ -26,9 +26,9 @@
       "DRB Marketing": "#9ca3af"
     },
     "monthLabels": {
-      "Janeiro": "Jan 2026",
-      "Fevereiro": "Fev 2026",
-      "Marco": "Mar 2026"
+      "Janeiro": "Jan",
+      "Fevereiro": "Fev",
+      "Marco": "Mar"
     }
   },
   "social": {
@@ -767,7 +767,7 @@
           "r": 40
         }
       ],
-      "overallPct": 79.62
+      "overallPct": 69
     },
     "Fevereiro": {
       "seo": [
@@ -1068,7 +1068,7 @@
           "r": 50
         }
       ],
-      "overallPct": 78.41
+      "overallPct": 69
     },
     "Marco": {
       "seo": [
@@ -1369,7 +1369,7 @@
           "r": 50
         }
       ],
-      "overallPct": 75
+      "overallPct": 70
     }
   }
 }
