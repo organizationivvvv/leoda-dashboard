@@ -271,10 +271,10 @@ table.dt td:first-child{font-weight:600;color:var(--text)}
   <!-- RANKINGS -->
   <section class="sec"><h3>Rankings dos Players</h3><p>Classificação geral por touchpoints e performance ponderada</p></section>
   <div class="chart-grid">
-    <div class="cc full"><h4><span class="dot" style="background:#1e40af"></span>Touchpoints Digitais</h4><div id="rkTable" class="table-wrapper"></div></div>
-    <div class="cc"><h4><span class="dot" style="background:#1e40af"></span>Performance Ponderada por Canal</h4><canvas id="rkChart"></canvas></div>
+    <div class="cc full"><h4><span class="dot" style="background:#dfab78"></span>Touchpoints Digitais</h4><div id="rkTable" class="table-wrapper"></div></div>
+    <div class="cc"><h4><span class="dot" style="background:#dfab78"></span>Performance Ponderada por Canal</h4><canvas id="rkChart"></canvas></div>
     <div class="cc"><h4><span class="dot" style="background:#8b5cf6"></span>Radar Multicanal (Top 5)</h4><canvas id="rkRadar"></canvas></div>
-    <div class="cc"><h4><span class="dot" style="background:#1e40af"></span>Evolução da Performance LEODA</h4><canvas id="trendChart"></canvas></div>
+    <div class="cc"><h4><span class="dot" style="background:#dfab78"></span>Evolução da Performance LEODA</h4><canvas id="trendChart"></canvas></div>
   </div>
 
   <!-- DATA TABLES -->
@@ -738,24 +738,16 @@ var DATA_INLINE = {
       ],
       "tt": [
         {
-          "p": "Le Pera",
-          "v": 36223
-        },
-        {
-          "p": "Notopo",
-          "v": 3159
-        },
-        {
           "p": "LEODA",
           "v": 39
         },
         {
-          "p": "DRB Marketing",
-          "v": 10
+          "p": "Artesania Marketing",
+          "v": 0
         },
         {
-          "p": "NoMaze",
-          "v": 5
+          "p": "DRB Marketing",
+          "v": 0
         },
         {
           "p": "Frederico Burlamaqui",
@@ -766,7 +758,15 @@ var DATA_INLINE = {
           "v": 0
         },
         {
-          "p": "Artesania Marketing",
+          "p": "Le Pera",
+          "v": 0
+        },
+        {
+          "p": "NoMaze",
+          "v": 0
+        },
+        {
+          "p": "Notopo",
           "v": 0
         }
       ]
@@ -1512,7 +1512,7 @@ var DATA_INLINE = {
           "fb": 1,
           "li": 0,
           "yt": 0,
-          "tt": 5,
+          "tt": 0,
           "r": 34
         },
         {
@@ -1524,7 +1524,7 @@ var DATA_INLINE = {
           "fb": 4404,
           "li": 0.0556,
           "yt": 0.0009,
-          "tt": 3159,
+          "tt": 0,
           "r": 32
         },
         {
@@ -1536,7 +1536,7 @@ var DATA_INLINE = {
           "fb": 4157,
           "li": 0.2222,
           "yt": 0,
-          "tt": 36223,
+          "tt": 0,
           "r": 31
         },
         {
@@ -1572,7 +1572,7 @@ var DATA_INLINE = {
           "fb": 39,
           "li": 0,
           "yt": 0,
-          "tt": 10,
+          "tt": 0,
           "r": 16
         }
       ],
@@ -1610,7 +1610,7 @@ var DATA_INLINE = {
           "fb": 1,
           "li": 0,
           "yt": 0,
-          "tt": 5,
+          "tt": 0,
           "r": 128
         },
         {
@@ -1634,7 +1634,7 @@ var DATA_INLINE = {
           "fb": 4157,
           "li": 0.2222,
           "yt": 0,
-          "tt": 36223,
+          "tt": 0,
           "r": 97
         },
         {
@@ -1646,7 +1646,7 @@ var DATA_INLINE = {
           "fb": 4404,
           "li": 0.0556,
           "yt": 0.0009,
-          "tt": 3159,
+          "tt": 0,
           "r": 92
         },
         {
@@ -1670,7 +1670,7 @@ var DATA_INLINE = {
           "fb": 39,
           "li": 0,
           "yt": 0,
-          "tt": 10,
+          "tt": 0,
           "r": 50
         }
       ],
@@ -1939,9 +1939,9 @@ function render() {
     data:{
       labels:months.map(function(m){return DATA.meta.monthLabels[m];}),
       datasets:[{
-        label:'LEODA Performance',data:trendData,borderColor:'#1e40af',backgroundColor:'rgba(223,171,120,0.10)',
+        label:'LEODA Performance',data:trendData,borderColor:'#dfab78',backgroundColor:'rgba(223,171,120,0.15)',
         borderWidth:2.5,fill:true,tension:0.35,pointRadius:4,pointHoverRadius:6,
-        pointBackgroundColor:'#1e40af',pointBorderColor:'#fff',pointBorderWidth:2
+        pointBackgroundColor:'#dfab78',pointBorderColor:'#fff',pointBorderWidth:2
       }]
     },
     options:{responsive:true,maintainAspectRatio:true,animation:{duration:600},plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(255,255,255,0.95)',titleColor:'#1f2937',bodyColor:'#1f2937',borderColor:'#e5e7eb',borderWidth:1,padding:10,titleFont:{family:'Inter',size:12,weight:'600'},bodyFont:{family:'Inter',size:11}}},scales:{x:{grid:{color:gridC},ticks:{color:tickC,font:{size:9,family:'Inter'}}},y:{min:0,max:100,grid:{color:gridC},ticks:{color:tickC,font:{size:9,family:'Inter'},callback:function(v){return v+'%';}}}}}
@@ -1995,7 +1995,7 @@ function render() {
     var h = '<div class="dt-sec"><h4><span class="dot" style="background:'+dotColor+'"></span>'+title+'</h4><table class="dt"><thead><tr><th>Player</th><th>'+label2+'</th></tr></thead><tbody>';
     sorted.forEach(function(d) {
       var isOrpec = d.p==='LEODA';
-      h += '<tr'+(isOrpec?' style="background:rgba(223,171,120,.08)"':'')+'><td'+(isOrpec?' style="color:#1e40af;font-weight:700"':'')+'>'+(isOrpec?'★ ':'')+d.p+'</td><td'+(isOrpec?' style="color:#1e40af;font-weight:700"':'')+'>'+d.v.toLocaleString()+'</td></tr>';
+      h += '<tr'+(isOrpec?' style="background:rgba(223,171,120,.08)"':'')+'><td'+(isOrpec?' style="color:#dfab78;font-weight:700"':'')+'>'+(isOrpec?'★ ':'')+d.p+'</td><td'+(isOrpec?' style="color:#dfab78;font-weight:700"':'')+'>'+d.v.toLocaleString()+'</td></tr>';
     });
     h += '</tbody></table></div>';
     return h;
@@ -2197,4 +2197,6 @@ document.getElementById('btnExport').addEventListener('click', exportCSV);
 </script>
 </body>
 </html>
+
+
 
